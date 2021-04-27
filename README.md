@@ -1,6 +1,6 @@
 # Vzory pro zajištění integrity relační databáze v systému řízení báze dat Oracle
 
-## Entitní integrita
+## Zajištění entitní integrity
 
 #### Popis problému
 
@@ -21,5 +21,9 @@ ALTER TABLE EVALUATIONS
 ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
 ```
 
+#### Typy omezení v Oracle
 
+Omezení pomocí primarního klíče
+
+## 
 
