@@ -139,3 +139,30 @@ ADD CONSTRAINT check_employee_age
 
 Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala zadané podmínky.
 
+## Zachování integrity neznámé hodnoty
+
+#### Popis problému
+
+Tato integrita, řeší zda hodnota ve sloupci může nabýt neznámé hodnoty. Jelikož některé atributy musí mít vždy známou hodnotu, může nedodržení této integrity způsobit chybně zadaná data v databázi.
+
+#### Příklad problému
+
+Máme databázi zaměstnanců, kde zaměstnanec má atributy jméno, věk, plat. Věk zaměstnance nesmí nikdy nabýt neznámé hodnoty, jinak je tato integrita narušena
+
+#### Řešení problému
+
+Tento problém se řeší zakázáním neznámé hodnoty pro příslušné sloupce.
+
+#### Příklad kódu
+
+Přidání omezení neznámé hodnoty:
+
+```sql
+ALTER TABLE PERFORMANCE_PARTS
+MODIFY WEIGHT NOT NULL;
+```
+
+#### Typ omezení podle Oracle dokumentace
+
+Omezení pomocí nastavení, zda sloupec může nabýt neznámé hodnoty.
+
