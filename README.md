@@ -87,18 +87,27 @@ Máme v databázi definovaný sloupec pro datum nástupu zaměstnance. V aplikac
 
 #### Řešení problému
 
-Tento problém se řeší pomocí kontrolních omezení, 
+Tento problém se řeší pomocí kontrolních omezení a při tvorbě tabulky. Při vytváření tabulky se volí datový typ pro každý jednotlivý sloupec v tabulce, tím se dociluje lepší doménové integrity databáze. Dále pomocí kontrolních omezení, můžeme zajistit vyřešení ostatní problémů vznikajících při zachování doménové integrity, jako například, že plat zaměstnance není záporný, nebo že jméno dodavatele náleží výběru, který my zadáme.
 
 #### Příklad kódu
 
-Vytvoření primárního klíče:
+Přidání omezení aby jméno dodavatele bylo pouze ze zadaného výběru:
 
 ```sql
-ALTER TABLE EVALUATIONS
-ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
+ALTER TABLE suppliers
+ADD CONSTRAINT check_supplier_name
+    CHECK (supplier_name IN ('IBM', 'Microsoft', 'NVIDIA'));
+```
+
+Přidání omezení pro zajištění nezáporného platu zaměstnance:
+
+```sql
+ALTER TABLE employees
+ADD CONSTRAINT emp_salary_min_demo
+    CHECK (salary > 0);
 ```
 
 #### Typy omezení v Oracle dokumentaci
 
-Omezení pomocí primarního klíče, toto omezení kombinuje omezení na unikatní hodnoty a omezení vložení hodnoty null.
+Omezení pomocí kontroly, požadují po hodnotě v databázi aby splňovala zadané podmínky.
 
