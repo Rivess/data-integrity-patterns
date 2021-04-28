@@ -12,7 +12,7 @@ Databáze nedodržuje entitní integritu, do databáze se nám dostanou dva stej
 
 #### Řešení problému
 
-K řešení toho problému se využívá primárního klíče. Primární klíč je nenulový unikátní identifikátor, díky kterému můžeme zajistit entitní integritu v relační databázi. Většina relačních databází naštěstí toto chování vynucuje, totéž platí i pro Oracle databázi
+K řešení toho problému se využívá primárního klíče. Primární klíč je nenulový unikátní identifikátor, díky kterému můžeme zajistit entitní integritu v relační databázi. Většina relačních databází naštěstí toto chování vynucuje, totéž platí i pro Oracle databázi.
 
 #### Příklad kódu
 
@@ -23,9 +23,9 @@ ALTER TABLE EVALUATIONS
 ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
 ```
 
-#### Typy omezení v Oracle dokumentaci
+#### Typ omezení podle Oracle dokumentace
 
-Omezení pomocí primárního klíče, toto omezení kombinuje omezení na unikatní hodnoty a omezení vložení hodnoty null.
+Omezení pomocí primárního klíče, toto omezení kombinuje omezení na unikátní hodnoty a omezení vložení hodnoty null.
 
 ## Zachování referenční integrity
 
@@ -35,7 +35,7 @@ Referenční integrita se zabývá vztahy jednotlivých záznamů v relační da
 
 #### Příklad problému
 
-Máme databázi bankovní společnosti, v této databázi, existuje tabulka klientů banky a tabulka bankovních účtů. Každý záznam v tabulce bankovních účtů, má cízí klíč z tabulky klientů banky, jelikož každý účet musí patřit jednomu klientovi. Pokud ale smažame klienta kterému patří alespoň jeden účet, v záznamu v tabulce s bankovnimi účty, nám zůstane cizí klíč, který neodkazuje na žádný záznam. Tomuto zabráníme dodržením referenční integrity.
+Máme databázi bankovní společnosti, v této databázi, existuje tabulka klientů banky a tabulka bankovních účtů. Každý záznam v tabulce bankovních účtů, má cizí klíč z tabulky klientů banky, jelikož každý účet musí patřit jednomu klientovi. Pokud ale smažeme klienta kterému patří alespoň jeden účet, v záznamu v tabulce s bankovnimi účty, nám zůstane cizí klíč, který neodkazuje na žádný záznam. Tomuto zabráníme dodržením referenční integrity.
 
 #### Řešení problému
 
@@ -71,7 +71,7 @@ FOREIGN KEY (Deptno) REFERENCES Dept_tab
 ON DELETE SET NULL); 
 ```
 
-#### Typy omezení v Oracle dokumentaci
+#### Typ omezení podle Oracle dokumentace
 
 Omezení pomocí cizího klíče, toto omezení nastaví sloupec v tabulce jako cizí klíč, který odkazuje na primární klíč a jaká akce se provede při vymazání tohoto primárního klíče.
 
@@ -107,7 +107,7 @@ ADD CONSTRAINT emp_salary_min_demo
     CHECK (salary > 0);
 ```
 
-#### Typy omezení v Oracle dokumentaci
+#### Typ omezení podle Oracle dokumentace
 
 Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala zadané podmínky.
 
@@ -135,7 +135,7 @@ ADD CONSTRAINT check_employee_age
     CHECK (employee_age >= 18);
 ```
 
-#### Typy omezení v Oracle dokumentaci
+#### Typ omezení podle Oracle dokumentace
 
 Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala zadané podmínky.
 
