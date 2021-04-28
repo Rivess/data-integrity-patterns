@@ -111,3 +111,31 @@ ADD CONSTRAINT emp_salary_min_demo
 
 Omezení pomocí kontroly, požadují po hodnotě v databázi aby splňovala zadané podmínky.
 
+## Uživatelem definovaná integritní omezení
+
+#### Popis problému
+
+Uživatelem definované integritní omezení, nebo také někdy nazývaná byznysová omezení, jsou omezení které vyplívají z požadavků uživatele databáze a jeho potřeb. 
+
+#### Příklad problému
+
+Uživatel potřebuje zajistit aby v databazi byli uloženi pouze zaměstnanci s věkem větším než osumnáct let. Pokud nebudeme mít nastavené omezení, které bý vynucovalo toto pravidlo, do databáze se může dostat zaměstnanec s menším věkem než osumnáct let a vznikne nám chybový záznam v databázi.
+
+#### Řešení problému
+
+Tento problém se řeší pomocí kontrolních omezení stejně jako u doménových intgritních omezení. Pomocí kontrolních omezení, můžeme zajistit splnění uživatelem definovaných integritních požadavků.
+
+#### Příklad kódu
+
+Přidání kontrolního omezení, pro zajištění velikosti věku zaměstnance:
+
+```sql
+ALTER TABLE employees
+ADD CONSTRAINT check_employee_age
+    CHECK (employee_age >= 18);
+```
+
+#### Typy omezení v Oracle dokumentaci
+
+Omezení pomocí kontroly, požadují po hodnotě v databázi aby splňovala zadané podmínky.
+
