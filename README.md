@@ -25,7 +25,7 @@ ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
 
 #### Typ omezení podle Oracle dokumentace
 
-Omezení pomocí primárního klíče, toto omezení kombinuje omezení na unikátní hodnoty a omezení vložení hodnoty null.
+Omezení pomocí primárního klíče, toto omezení kombinuje omezení na unikátní hodnoty a omezení vložení neznámé hodnoty.
 
 ## Zachování referenční integrity
 
@@ -143,7 +143,7 @@ Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala za
 
 #### Popis problému
 
-Tato integrita, řeší zda hodnota ve sloupci může nabýt neznámé hodnoty. Jelikož některé atributy musí mít vždy známou hodnotu, může nedodržení této integrity způsobit chybně zadaná data v databázi.
+Tato integrita řeší zda hodnota ve sloupci může nabýt neznámé hodnoty. Jelikož některé atributy musí mít vždy známou hodnotu, může nedodržení této integrity způsobit chybně zadaná data v databázi.
 
 #### Příklad problému
 
