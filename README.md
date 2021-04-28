@@ -43,7 +43,7 @@ K řešení tohoto problému se využívá cizího klíče a nastavení toho co 
 
 * Žádná akce při mazání, nebo úpravě záznamu - to znamená, že uživatelé nemůžou vymazat nebo změnit hodnotu primárního klíče v záznamu na který odkazuje cízí klíč. Například pokud zaměstnanec patří do oddělení, tak toto oddělení není možné vymazat.
 * Kaskádové odstranění \(DELETE CASCADE\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny záznamy s tímto cizím klíčem budou také vymazány.
-* Odstranění, které nastaví cizí klíč na hodnotu null \(DELETE SET NULL\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny tyto cizí klíče jsou nastaveny na hodnotu null. 
+* Odstranění, které nastaví cizí klíč na neznámou hodnotu \(DELETE SET NULL\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny tyto cizí klíče jsou nastaveny na neznámou hodnotu. 
 
 #### Příklad kódu
 
@@ -63,7 +63,7 @@ FOREIGN KEY (Deptno) REFERENCES Dept_tab
 ON DELETE CASCADE);
 ```
 
-Vytvoření tabulky s cizím klíčem, který se nastaví na hodnotu null při odstranění:
+Vytvoření tabulky s cizím klíčem, který se nastaví na neznámou hodnotu při odstranění:
 
 ```sql
 CREATE TABLE Emp_tab (
