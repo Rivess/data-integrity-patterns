@@ -25,13 +25,13 @@ ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
 
 #### Typy omezení v Oracle dokumentaci
 
-Omezení pomocí primarního klíče, toto omezení kombinuje omezení na unikatní hodnoty a omezení vložení hodnoty null.
+Omezení pomocí primárního klíče, toto omezení kombinuje omezení na unikatní hodnoty a omezení vložení hodnoty null.
 
 ## Zachování referenční integrity
 
 #### Popis problému
 
-Referenční integrita se zabývá vztahy jednotlivých záznamů v relační databázi. Z entitní integrity víme, že každý záznam musí mít svůj primarní klíč, tento klíč můžeme použít v jiném záznamu jako cizí klíč. Cizí klíč slouží k referenci na záznam u kterého tento klíč je jako primarní klíč. Když nám vznikne takováto logická závislost, tak při vymazání nadřazeného záznamu, nám může vzniknout chyba v systému.
+Referenční integrita se zabývá vztahy jednotlivých záznamů v relační databázi. Z entitní integrity víme, že každý záznam musí mít svůj primární klíč, tento klíč můžeme použít v jiném záznamu jako cizí klíč. Cizí klíč slouží k referenci na záznam u kterého tento klíč je jako primární klíč. Když nám vznikne takováto logická závislost, tak při vymazání nadřazeného záznamu, nám může vzniknout chyba v systému.
 
 #### Příklad problému
 
@@ -39,15 +39,15 @@ Máme databázi bankovní společnosti, v této databázi, existuje tabulka klie
 
 #### Řešení problému
 
-K řešení tohoto problému se využívá cizího klíče a nastavení toho co se má dít, při vymazání nebo uprávě záznamu na který tento cizí klíč odkazuje. Když je vymazán nebo upracven záznam na který cizí klíč odkazuje, můžeme nastavit následující možnosti toho co se stane:
+K řešení tohoto problému se využívá cizího klíče a nastavení toho co se má dít, při vymazání nebo upravě záznamu na který tento cizí klíč odkazuje. Když je vymazán nebo upraven záznam, na který cizí klíč odkazuje, můžeme nastavit následující možnosti toho co se stane:
 
 * Žádná akce při mazání, nebo úpravě záznamu - to znamená, že uživatelé nemůžou vymazat nebo změnit hodnotu primárního klíče v záznamu na který odkazuje cízí klíč. Například pokud zaměstnanec patří do oddělení, tak toto oddělení není možné vymazat.
-* Kaskádové odstranění \(DELETE CASCADE\) - Pokud záznam obsahující primarní klíč, na který odkazují cizí klíče je vymazán, tak všechny záznamy s tímto cizím klíčem budou také vymazány.
+* Kaskádové odstranění \(DELETE CASCADE\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny záznamy s tímto cizím klíčem budou také vymazány.
 * Odstranění, které nastaví cizí klíč na hodnotu null \(DELETE SET NULL\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny tyto cizí klíče jsou nastaveny na hodnotu null. 
 
 #### Příklad kódu
 
-Přidání cizího klíče do jíž existující tabulky:
+Přidání cizího klíče, do již existující tabulky:
 
 ```sql
 ALTER TABLE EVALUATIONS
@@ -73,7 +73,7 @@ ON DELETE SET NULL);
 
 #### Typy omezení v Oracle dokumentaci
 
-Omezení pomocí cizího klíče, toto omezení nastaví sloupec v tabulce jako cizí klíč, který odkazuje na primarní klíč a jaká akce se provede při vymazání tohoto primarního klíče.
+Omezení pomocí cizího klíče, toto omezení nastaví sloupec v tabulce jako cizí klíč, který odkazuje na primární klíč a jaká akce se provede při vymazání tohoto primárního klíče.
 
 ## Zachování doménové integrity
 
@@ -119,7 +119,7 @@ Uživatelem definované integritní omezení, nebo také někdy nazývaná byzny
 
 #### Příklad problému
 
-Uživatel potřebuje zajistit aby v databazi byli uloženi pouze zaměstnanci s věkem větším než osumnáct let. Pokud nebudeme mít nastavené omezení, které bý vynucovalo toto pravidlo, do databáze se může dostat zaměstnanec s menším věkem než osumnáct let a vznikne nám chybový záznam v databázi.
+Uživatel potřebuje zajistit, aby v databázi byli uloženi pouze zaměstnanci s věkem větším než osmnáct let. Pokud nebudeme mít nastavené omezení, které bý vynucovalo toto pravidlo, do databáze se může dostat zaměstnanec s menším věkem než osmnáct let a vznikne nám chybový záznam v databázi.
 
 #### Řešení problému
 
