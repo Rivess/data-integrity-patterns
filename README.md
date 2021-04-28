@@ -109,7 +109,7 @@ ADD CONSTRAINT emp_salary_min_demo
 
 #### Typy omezení v Oracle dokumentaci
 
-Omezení pomocí kontroly, požadují po hodnotě v databázi aby splňovala zadané podmínky.
+Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala zadané podmínky.
 
 ## Uživatelem definovaná integritní omezení
 
@@ -137,5 +137,5 @@ ADD CONSTRAINT check_employee_age
 
 #### Typy omezení v Oracle dokumentaci
 
-Omezení pomocí kontroly, požadují po hodnotě v databázi aby splňovala zadané podmínky.
+Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala zadané podmínky.
 
