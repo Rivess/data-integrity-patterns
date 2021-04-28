@@ -1,6 +1,6 @@
 # Vzory pro zajištění integrity relační databáze v systému řízení báze dat Oracle
 
-## Entitní integrita
+## Zachování entitní integrity
 
 #### Popis problému
 
@@ -27,7 +27,7 @@ ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
 
 Omezení pomocí primarního klíče, toto omezení kombinuje omezení na unikatní hodnoty a omezení vložení hodnoty null.
 
-## Referenční integrita
+## Zachování referenční integrity
 
 #### Popis problému
 
@@ -74,4 +74,31 @@ ON DELETE SET NULL);
 #### Typy omezení v Oracle dokumentaci
 
 Omezení pomocí cizího klíče, toto omezení nastaví sloupec v tabulce jako cizí klíč, který odkazuje na primarní klíč a jaká akce se provede při vymazání tohoto primarního klíče.
+
+## Zachování doménové integrity
+
+#### Popis problému
+
+Doménová integrita je v databázi potřeba, aby se nám ve sloupcích neobjevovali nechtěná data. To znamená aby pro sloupec byly povoleny pouze hodnoty, které náležý do jeho domény.
+
+#### Příklad problému
+
+Máme v databázi definovaný sloupec pro datum nástupu zaměstnance. V aplikaci nastane chyba a do data nástupu zaměstnance se snaží uložit hodnotu, která není datum, například "hodnota". Pokud toto databáze umožní, tak se naruší doménová integrita této databáze.
+
+#### Řešení problému
+
+K řešení toho problému se využívá primárního klíče. Primární klíč je nenulový unikátní identifikátor, díky kterému můžeme zajistit entitní integritu v relační databázi. Většina relačních databází naštěstí toto chování vynucuje, totéž platí i pro Oracle databázi
+
+#### Příklad kódu
+
+Vytvoření primárního klíče:
+
+```sql
+ALTER TABLE EVALUATIONS
+ADD CONSTRAINT EVAL_EVAL_ID_PK PRIMARY KEY (EVALUATION_ID);
+```
+
+#### Typy omezení v Oracle dokumentaci
+
+Omezení pomocí primarního klíče, toto omezení kombinuje omezení na unikatní hodnoty a omezení vložení hodnoty null.
 
