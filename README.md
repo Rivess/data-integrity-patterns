@@ -87,7 +87,7 @@ Máme v databázi definovaný sloupec pro datum nástupu zaměstnance. V aplikac
 
 #### Řešení problému
 
-K řešení toho problému se využívá primárního klíče. Primární klíč je nenulový unikátní identifikátor, díky kterému můžeme zajistit entitní integritu v relační databázi. Většina relačních databází naštěstí toto chování vynucuje, totéž platí i pro Oracle databázi
+Tento problém se řeší pomocí kontrolních omezení, 
 
 #### Příklad kódu
 
