@@ -1,4 +1,4 @@
-# Vzory pro zajištění integrity relační databáze v systému řízení báze dat Oracle
+# Vzory pro zajištění integrity relační databázi v systému řízení báze dat Oracle
 
 ## Zachování entitní integrity
 
