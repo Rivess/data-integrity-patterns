@@ -91,7 +91,7 @@ Tento problém se řeší pomocí kontrolních omezení a při tvorbě tabulky. 
 
 #### Příklad kódu
 
-Přidání omezení aby jméno dodavatele bylo pouze ze zadaného výběru:
+Přidání omezení, aby jméno dodavatele bylo pouze ze zadaného výběru:
 
 ```sql
 ALTER TABLE suppliers
@@ -115,7 +115,7 @@ Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala za
 
 #### Popis problému
 
-Uživatelem definované integritní omezení, nebo také někdy nazývaná byznysová omezení, jsou omezení které vyplívají z požadavků uživatele databáze a jeho potřeb. 
+Uživatelem definované integritní omezení, nebo také někdy nazývaná byznysová omezení, jsou omezení, které vyplívají z požadavků uživatele databáze a jeho potřeb. 
 
 #### Příklad problému
 
