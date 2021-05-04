@@ -4,7 +4,7 @@
 
 #### Popis problému
 
-Entitní integrita je v databází potřeba z toho důvodu, aby se v databází nemohli nalézat žádné duplicitní záznamy. To nám zajistí vyhnutí se případným problémům, které by díky tomuto mohli vzniknout.
+Entitní integrita je v databází potřeba z toho důvodu, aby se v databází nemohli nalézat žádné duplicitní záznamy. To nám zajistí vyhnutí se případným problémům, které by kvůli tomuto mohli vzniknout.
 
 #### Příklad problému
 
@@ -31,23 +31,23 @@ Omezení pomocí primárního klíče, toto omezení kombinuje omezení na unik�
 
 #### Popis problému
 
-Referenční integrita se zabývá vztahy jednotlivých záznamů v relační databázi. Z entitní integrity víme, že každý záznam musí mít svůj primární klíč, tento klíč můžeme použít v jiném záznamu jako cizí klíč. Cizí klíč slouží k referenci na záznam u kterého tento klíč je jako primární klíč. Když nám vznikne takováto logická závislost, tak při vymazání nadřazeného záznamu, nám může vzniknout chyba v systému.
+Referenční integrita se zabývá vztahy jednotlivých záznamů v relační databázi. Z entitní integrity víme, že každý záznam musí mít svůj primární klíč, tento klíč můžeme použít v jiném záznamu jako cizí klíč. Cizí klíč slouží k referenci na záznam, u kterého tento klíč je jako primární klíč. Když nám vznikne takováto logická závislost, tak při vymazání nadřazeného záznamu, nám může vzniknout chyba v systému.
 
 #### Příklad problému
 
-Máme databázi bankovní společnosti, v této databázi, existuje tabulka klientů banky a tabulka bankovních účtů. Každý záznam v tabulce bankovních účtů, má cizí klíč z tabulky klientů banky, jelikož každý účet musí patřit jednomu klientovi. Pokud ale smažeme klienta kterému patří alespoň jeden účet, v záznamu v tabulce s bankovnimi účty, nám zůstane cizí klíč, který neodkazuje na žádný záznam. Tomuto zabráníme dodržením referenční integrity.
+Máme databázi bankovní společnosti, v této databázi existuje tabulka klientů banky a tabulka bankovních účtů. Každý záznam v tabulce bankovních účtů, má cizí klíč z tabulky klientů banky, jelikož každý účet musí patřit jednomu klientovi. Pokud ale smažeme klienta kterému patří alespoň jeden účet, v záznamu v tabulce s bankovnimi účty nám zůstane cizí klíč, který neodkazuje na žádný záznam. Tomuto zabráníme dodržením referenční integrity.
 
 #### Řešení problému
 
-K řešení tohoto problému se využívá cizího klíče a nastavení toho co se má dít, při vymazání nebo upravě záznamu na který tento cizí klíč odkazuje. Když je vymazán nebo upraven záznam, na který cizí klíč odkazuje, můžeme nastavit následující možnosti toho co se stane:
+K řešení tohoto problému se využívá cizího klíče a nastavení toho co se má dít při vymazání nebo upravě záznamu, na který tento cizí klíč odkazuje. Když je vymazán nebo upraven záznam, na který cizí klíč odkazuje, můžeme nastavit následující možnosti toho co se stane:
 
-* Žádná akce při mazání, nebo úpravě záznamu - to znamená, že uživatelé nemůžou vymazat nebo změnit hodnotu primárního klíče v záznamu na který odkazuje cízí klíč. Například pokud zaměstnanec patří do oddělení, tak toto oddělení není možné vymazat.
+* Žádná akce při mazání, nebo úpravě záznamu - to znamená, že uživatelé nemůžou vymazat nebo změnit hodnotu primárního klíče v záznamu, na který odkazuje cizí klíč. Například pokud zaměstnanec patří do oddělení, tak toto oddělení není možné vymazat.
 * Kaskádové odstranění \(DELETE CASCADE\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny záznamy s tímto cizím klíčem budou také vymazány.
 * Odstranění, které nastaví cizí klíč na neznámou hodnotu \(DELETE SET NULL\) - Pokud záznam obsahující primární klíč, na který odkazují cizí klíče je vymazán, tak všechny tyto cizí klíče jsou nastaveny na neznámou hodnotu. 
 
 #### Příklad kódu
 
-Přidání cizího klíče, do již existující tabulky:
+Přidání cizího klíče do již existující tabulky:
 
 ```sql
 ALTER TABLE EVALUATIONS
@@ -79,7 +79,7 @@ Omezení pomocí cizího klíče, toto omezení nastaví sloupec v tabulce jako 
 
 #### Popis problému
 
-Doménová integrita je v databázi potřeba, aby se nám ve sloupcích neobjevovali nechtěná data. To znamená aby pro sloupec byly povoleny pouze hodnoty, které náležý do jeho domény.
+Doménová integrita je v databázi potřeba, aby se nám ve sloupcích neobjevovali nechtěná data. To znamená, aby pro sloupec byly povoleny pouze hodnoty, které náležý do jeho domény.
 
 #### Příklad problému
 
@@ -115,15 +115,15 @@ Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala za
 
 #### Popis problému
 
-Uživatelem definované integritní omezení, nebo také někdy nazývaná byznysová omezení, jsou omezení, které vyplívají z požadavků uživatele databáze a jeho potřeb. 
+Uživatelem definované integritní omezení, nebo také někdy nazývaná byznysová omezení, jsou omezení, která vyplívají z požadavků uživatele databáze a jeho potřeb. 
 
 #### Příklad problému
 
-Uživatel potřebuje zajistit, aby v databázi byli uloženi pouze zaměstnanci s věkem větším než osmnáct let. Pokud nebudeme mít nastavené omezení, které bý vynucovalo toto pravidlo, do databáze se může dostat zaměstnanec s menším věkem než osmnáct let a vznikne nám chybový záznam v databázi.
+Uživatel potřebuje zajistit, aby v databázi byli uloženi pouze zaměstnanci s věkem větším než osmnáct let. Pokud nebudeme mít nastavené omezení, které bý vynucovalo toto pravidlo, do databáze se může dostat zaměstnanec s menším věkem než osmnáct let a vznikne nám chybný záznam v databázi.
 
 #### Řešení problému
 
-Tento problém se řeší pomocí kontrolních omezení stejně jako u doménových intgritních omezení. Pomocí kontrolních omezení, můžeme zajistit splnění uživatelem definovaných integritních požadavků.
+Tento problém se řeší pomocí kontrolních omezení stejně jako u doménových integritních omezení. Pomocí kontrolních omezení, můžeme zajistit splnění uživatelem definovaných integritních požadavků.
 
 #### Příklad kódu
 
@@ -143,7 +143,7 @@ Omezení pomocí kontroly, požadují po hodnotě v databázi, aby splňovala za
 
 #### Popis problému
 
-Tato integrita řeší zda hodnota ve sloupci může nabýt neznámé hodnoty. Jelikož některé atributy musí mít vždy známou hodnotu, může nedodržení této integrity způsobit chybně zadaná data v databázi.
+Tato integrita řeší, zda hodnota ve sloupci může nabýt neznámé hodnoty. Jelikož některé atributy musí mít vždy známou hodnotu, může nedodržení této integrity způsobit chybně zadaná data v databázi.
 
 #### Příklad problému
 
