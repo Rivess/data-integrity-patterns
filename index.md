@@ -1,11 +1,8 @@
----
-description: >-
-  Na této stránce je uveden katalog vzorů řešení pro problémy při zajištění
-  integrity v relačním systémů řízení báze dat Oracle, který vznikl jako
-  výsledek mé bakalářské práce.
----
-
 # Katalog vzorů řešení pro problémy při zajištění integrity v relačním systému řízení báze dat Oracle
+
+Na této stránce je uveden katalog vzorů řešení pro problémy při zajištění integrity v relačním systémů řízení báze dat Oracle, který vznikl jako výsledek mé bakalářské práce.
+
+[Zachování entitní integrity](#Zachování entitní integrity)
 
 ## Zachování entitní integrity
 
