@@ -2,7 +2,21 @@
 
 Na této stránce je uveden katalog vzorů řešení pro problémy při zajištění integrity v relačním systémů řízení báze dat Oracle, který vznikl jako výsledek mé bakalářské práce.
 
-[Zachování entitní integrity](#Zachování entitní integrity)
+Autor - Tomáš Waller
+
+## Seznam problémů:
+
+- [Zachování entitní integrity](#zachování-entitní-integrity)
+- [Přirozený primární klíč versus umělý primární klíč](#přirozený-primární-klíč-versus-umělý-primární-klíč)
+- [Zachování referenční integrity](#zachování-referenční-integrity)
+- [Zajištění vztahu mnoho k mnoha](#zajištění-vztahu-mnoho-k-mnoha)
+- [Zachování doménové integrity](#zachování-doménové-integrity)
+- [Kontrola věku z data narození](#kontrola-věku-z-data-narození)
+- [Zachování integrity neznámé hodnoty](#zachování-integrity-neznámé-hodnoty)
+- [Více tabulková kontrolní omezení](#více-tabulková-kontrolní-omezení)
+- [Problém mutující tabulky](#problém-mutující-tabulky)
+
+----------------------------------
 
 ## Zachování entitní integrity
 
