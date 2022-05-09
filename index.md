@@ -2,7 +2,7 @@
 
 Na této stránce je uveden katalog vzorů řešení pro problémy při zajištění integrity v relačním systémů řízení báze dat Oracle, který vznikl jako výsledek mé bakalářské práce.
 
-Autor - Tomáš Waller
+Autor: Tomáš Waller
 
 ## Seznam problémů:
 
