@@ -1,2 +1,4 @@
 remote_theme: barryclark/jekyll-now@master
 title: [Katalog vzorů řešení pro problémy při zajištění integrity v relačním systému řízení báze dat Oracle]
+
+theme: jekyll-theme-cayman
