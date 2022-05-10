@@ -135,7 +135,7 @@ CREATE TABLE accounts (
 
 Schéma vytvořených tabulek pro lepší představu vztahu:
 
-![Obrázek 1 Schéma tabulek účety a klienti](.gitbook/assets/clients\_accounts\_relation.png)
+![Obrázek 1 Schéma tabulek účety a klienti](images/clients\_accounts\_relation.png)
 
 ## Zajištění vztahu mnoho k mnoha
 
@@ -223,7 +223,7 @@ CREATE TABLE cart_to_product (
 
 Schéma vytvořených tabulek pro lepší představu vztahu:
 
-![Obrázek 2 Schéma vztahu mnoho k mnoha](.gitbook/assets/cart\_to\_product.png)
+![Obrázek 2 Schéma vztahu mnoho k mnoha](images/cart\_to\_product.png)
 
 ## Zachování doménové integrity
 
