@@ -720,7 +720,7 @@ BEGIN
 END check_each_row;
 ```
 
-## Zdroje
+## Použité zdroje
 
 FITZJARRELL, David, 2016. Mutating Table Error In Oracle: Why It Happens And What You Can Do About It. _Database Journal_ \[online] \[vid. 2022-05-07]. Dostupné z: https://www.databasejournal.com/oracle/mutating-table-error-in-oracle-why-it-happens-and-what-you-can-do-about-it/
 
